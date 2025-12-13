@@ -51,8 +51,9 @@
 
 # ③ アプリのデプロイURL
 
-未デプロイ（ローカル環境にて動作確認）
+https://chiyuria.github.io/gs-md-architect-submit-06/
 
+ローカル環境にて動作確認
 ※ フロント：Live Server
 ※ サーバー：Node.js（localhost:3000）
 
