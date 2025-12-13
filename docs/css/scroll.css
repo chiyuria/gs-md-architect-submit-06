@@ -1,0 +1,21 @@
+::-webkit-scrollbar {
+  width: var(--scroll-size);
+  height: var(--scroll-size); 
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: var(--scroll-radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
+}
+
+::-webkit-scrollbar:horizontal {
+  height: var(--scroll-size);
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MD Architect</title>
+
+    <!-- Load fonts from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Load CSS stylesheets -->
+    <link rel="stylesheet" href="./css/hlYamikawa.css" />
+    <link rel="stylesheet" href="./css/markdown.css" />
+
+    <!-- Load base layout tokens and components -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/buttons.css" />
+    <link rel="stylesheet" href="./css/forms.css" />
+    <link rel="stylesheet" href="./css/scroll.css" />
+    <link rel="stylesheet" href="./css/toast.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
+  </head>
+
+  <body>
+    <header class="app-header">
+      <div class="header-title">MD Architect</div>
+    </header>
+
+    <div class="main-wrapper">
+      <!-- editor column -->
+      <aside class="col col-left">
+        <header class="col-header">
+          <h2 class="col-title">Editor</h2>
+          <div class="col-tools">
+            <button id="commit" class="btn btn-primary btn-sm">Commit</button>
+            <button id="load" class="btn btn-primary btn-sm">Load</button>
+          </div>
+        </header>
+
+        <div class="col-content">
+          <textarea
+            name="md-editor"
+            id="md-editor"
+            class="md-editor input-base input-area"
+          ></textarea>
+        </div>
+      </aside>
+
+      <!-- preview column -->
+      <main class="col col-center">
+        <header class="col-header">
+          <h2 class="col-title">Preview</h2>
+          <div class="col-tools">
+            <!-- <button id="undo" class="btn btn-icon">↩</button>
+            <button id="redo" class="btn btn-icon">↪</button> -->
+            <button id="copy-preview" class="btn btn-icon">📋</button>
+            <button id="exp-preview" class="btn btn-icon">+/-</button>
+          </div>
+        </header>
+
+        <div class="col-content">
+          <div id="md-preview" class="md-preview"></div>
+        </div>
+      </main>
+
+      <!-- AI settings column -->
+      <aside class="col col-right">
+        <header class="col-header">
+          <h2 class="col-title">AI Settings</h2>
+        </header>
+
+        <div class="col-content">
+          <h3 class="section-title">Instructions</h3>
+          <textarea
+            name="instructions"
+            id="instructions"
+            class="instructions input-base input-area"
+          ></textarea>
+
+          <h3 class="section-title">Few-shot</h3>
+          <textarea
+            name="fewshot"
+            id="fewshot"
+            class="fewshot input-base input-area"
+          ></textarea>
+
+          <h3 class="section-title">Actions</h3>
+          <button id="send" class="btn btn-primary">Run Gemini</button>
+        </div>
+      </aside>
+    </div>
+
+    <!-- modal layers -->
+    <div id="mk-modal-ok" class="mk-modal mk-hidden">
+      <div class="mk-bg"></div>
+      <div class="mk-box">
+        <p id="mk-ok-msg"></p>
+        <button id="mk-ok-btn" class="mk-btn">OK</button>
+      </div>
+    </div>
+
+    <div id="mk-modal-confirm" class="mk-modal mk-hidden">
+      <div class="mk-bg"></div>
+      <div class="mk-box">
+        <p id="mk-confirm-msg"></p>
+        <div class="mk-btn-line">
+          <button id="mk-confirm-ok" class="mk-btn ok">OK</button>
+          <button id="mk-confirm-cancel" class="mk-btn cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Version History -->
+<div id="version-modal" class="mk-modal mk-hidden">
+  <div class="mk-bg"></div>
+  <div class="mk-box mk-box--list">
+    <h3 class="mk-title">Version History</h3>
+    <ul id="version-list" class="mk-list"></ul>
+    <div class="mk-btn-line">
+      <button class="mk-btn cancel" id="close-version">Close</button>
+    </div>
+  </div>
+</div>
+
+
+    <!-- toast notifications container -->
+    <div class="toast-container"></div>
+
+    <!-- Load global libraries -->
+    <script src="./js/libs/jquery-3.7.1.min.js"></script>
+    <script src="./js/libs/marked.min.js"></script>
+    <script src="./js/libs/highlight.min.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script type="module" src="./js/app/firebaseConfig.js"></script>
+
+    <!-- Load UI helpers -->
+    <script src="./js/app/modal.js"></script>
+    <script src="./js/app/toast.js"></script>
+    <script src="./js/app/uiController.js"></script>
+
+    <!-- Load app modules -->
+    <script type="module" src="./js/app/markdownRenderer.js"></script>
+    <script type="module" src="./js/app/editorStore.js"></script>
+    <script type="module" src="./js/app/editorController.js"></script>
+  </body>
+</html>

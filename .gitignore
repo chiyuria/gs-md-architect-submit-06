@@ -1,0 +1,42 @@
+# -----------------------------------------
+# AI Editor / API & Prompt Protection .gitignore
+# -----------------------------------------
+
+# ==== Firebase ====
+docs/js/app/firebaseConfig.js
+
+# ==== Environment / Secrets ====
+.env
+.env.*
+
+# ==== Server vault (secret) ====
+server/vault/decoder.js
+server/vault/manifest.json
+server/vault/task.json
+
+# ==== Tools (generator only) ====
+tools/encoder.js
+tools/raw_prompts.txt
+
+# raw prompt assets
+raw_prompts/
+*.prompt
+*.raw
+*.secret
+
+# ==== Node / Build / Misc ====
+node_modules/
+dist/
+build/
+out/
+.cache/
+
+# ==== OS / Editor ====
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ==== Logs ====
+npm-debug.log
+yarn-error.log

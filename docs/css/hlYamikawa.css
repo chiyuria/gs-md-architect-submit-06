@@ -1,0 +1,28 @@
+/* chiyuria – custom highlight.js theme, feel free to let me know if you use it 😉 */
+
+.hljs {
+  color: #e7d7ff;
+  background: #1b1524;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #cba3ff;
+}
+
+.hljs-string,
+.hljs-attr,
+.hljs-number {
+  color: #ffb8f8;
+}
+
+.hljs-title,
+.hljs-name {
+  color: #a7c8ff; 
+}
+
+.hljs-comment {
+  color: #6f5f7a;
+  font-style: italic;
+  opacity: 0.7;
+}
