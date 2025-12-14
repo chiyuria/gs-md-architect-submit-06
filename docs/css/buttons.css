@@ -13,6 +13,8 @@
   cursor: pointer;
   user-select: none;
 
+  font-family: var(--font-ui), var(--font-jp);
+
   transition: 0.18s ease;
 }
 
@@ -52,11 +54,15 @@
 
 .btn-icon {
   padding: 0.6rem;
-  width: 3.6rem;
-  height: 3.6rem;
+  width: 2.8rem;
+  height: 2.8rem;
+
   border-radius: 50%;
   background: var(--btn-icon-bg);
-  color: var(--btn-icon-fg); /* Added for icon button text color */
+  color: var(--btn-icon-fg);
+
+  font-size: 1.3rem;
+  line-height: 1;
 }
 .btn-icon:hover {
   background: var(--btn-icon-hover);

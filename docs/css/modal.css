@@ -14,36 +14,41 @@
 .mk-bg {
   position: absolute;
   inset: 0;
-  background: var(--modal-backdrop, rgba(0, 0, 0, 0.55));
-  backdrop-filter: blur(3px);
+  background: var(--modal-backdrop, rgba(0, 0, 0, 0.6));
+  backdrop-filter: blur(4px);
 }
 
 .mk-box {
   position: relative;
-  background: var(--modal-bg, var(--panel-deep));
+  width: 30rem;
+  max-width: 90vw;
   padding: 2rem;
+
+  background: var(--modal-bg, var(--panel-deep));
   border-radius: var(--radius);
-  width: 28rem;
+  box-shadow: var(--shadow);
 
   color: var(--fg);
-  box-shadow: var(--shadow);
+  font-family: var(--font-ui), var(--font-jp);
 }
 
 .mk-box p {
   margin: 0;
-  font-size: 1.3rem;
-  line-height: 1.6;
+  font-family: var(--font-jp), var(--font-ui);
+  font-size: 1.35rem;
+  line-height: 1.65;
   color: var(--fg);
 }
 
 .mk-btn-line {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 1rem;
   margin-top: 1.6rem;
 }
 
 .mk-btn {
-  padding: 0.8rem 1.4rem;
+  padding: 0.6rem 1.4rem;
   border-radius: var(--radius);
   border: none;
   cursor: pointer;
@@ -51,6 +56,7 @@
   background: var(--modal-btn, var(--brand-1));
   color: var(--fg);
   font-size: 1.2rem;
+  font-family: var(--font-ui), var(--font-jp);
 
   transition: 0.15s ease;
 }
@@ -61,7 +67,6 @@
 
 .mk-btn.cancel {
   background: var(--modal-btn-cancel, #444);
-  color: var(--fg);
 }
 
 .mk-btn.cancel:hover {
@@ -74,10 +79,11 @@
 }
 
 /* ===== List Modal Extension ===== */
-
 .mk-box--list {
   width: 36rem;
+  max-width: 92vw;
   max-height: 70vh;
+
   display: flex;
   flex-direction: column;
 }
@@ -86,6 +92,7 @@
   margin: 0 0 1.2rem 0;
   font-size: 1.4rem;
   font-weight: 600;
+  font-family: var(--font-ui), var(--font-jp);
 }
 
 /* Version list */
@@ -93,16 +100,19 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  overflow-y: auto;
+
   flex: 1;
+  overflow-y: auto;
 }
 
 .mk-list li {
   padding: 0.8rem 1rem;
   border-radius: var(--radius);
   cursor: pointer;
-  font-size: 1.1rem;
-  line-height: 1.4;
+
+  font-family: var(--font-jp), var(--font-ui);
+  font-size: 1.2rem;
+  line-height: 1.5;
 
   color: var(--fg);
   background: transparent;
@@ -117,4 +127,9 @@
 .mk-list li.is-active {
   background: var(--brand-1);
   color: #fff;
+}
+
+/* Scroll Lock */
+body.is-modal-open {
+  overflow: hidden;
 }

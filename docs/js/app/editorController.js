@@ -75,6 +75,8 @@ $("#commit").on("click", async function () {
 
 // Load Versions
 $("#load").on("click", async function () {
+  lockScroll();
+
   const versions = await getVersions();
   const list = $("#version-list");
 
@@ -88,8 +90,6 @@ $("#load").on("click", async function () {
       createdTime = date.toLocaleString();
     }
 
-    console.log(version.title, createdTime);
-
     const li = $("<li>");
     li.text(version.title + " - " + createdTime);
 
@@ -101,22 +101,27 @@ $("#load").on("click", async function () {
   $("#version-modal").removeClass("mk-hidden");
 });
 
-//Apply selected version
+// Apply selected version
 $("#version-list").on("click", "li", async function () {
   const versionId = $(this).data("versionId");
+
+  $("#version-list li").removeClass("is-active");
+  $(this).addClass("is-active");
+
   const body = await loadVersion(versionId);
 
   $("#md-editor").val(body);
   renderMdPreview(body);
 
   $("#version-modal").addClass("mk-hidden");
+  unlockScroll();
 });
 
 // Close Versions Modal
 $("#close-version").on("click", function () {
   $("#version-modal").addClass("mk-hidden");
+  unlockScroll();
 });
-
 
 // Initial Load
 async function initEditor() {

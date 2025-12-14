@@ -1,10 +1,11 @@
+/* ---- Tokens ---- */
 :root {
-  /* ===== Font ===== */
+  /* Font */
   --font-ui: "Inter", "Roboto", system-ui, sans-serif;
   --font-jp: "Noto Sans JP", "Zen Kaku Gothic New", sans-serif;
   --font-accent: "Outfit", "Inter", sans-serif;
 
-  /* ===== Brand / Accent ===== */
+  /* Brand */
   --brand-1: #b59aff;
   --brand-2: #8a6cff;
 
@@ -12,26 +13,26 @@
   --accent-yellow: #ffd84c;
   --accent-red: #ff5f6e;
 
-  /* ===== Background ===== */
+  /* Background */
   --bg: #080a0f;
   --panel: rgba(255, 255, 255, 0.03);
   --panel-deep: rgba(255, 255, 255, 0.06);
 
-  /* ===== Text ===== */
+  /* Text */
   --fg: #f5f6fa;
   --fg-muted: rgba(245, 246, 250, 0.55);
   --fg-inverse: #080a0f;
 
-  /* ===== Radius & Shadows ===== */
+  /* Shape */
   --radius: 8px;
   --shadow: 0 0 18px rgba(150, 120, 255, 0.28);
 
-  /* ===== Spacing ===== */
+  /* Spacing */
   --space-1: 0.6rem;
   --space-2: 1.2rem;
   --space-3: 2rem;
 
-  /* ===== Button Colors ===== */
+  /* Button */
   --btn-primary-bg: var(--brand-2);
   --btn-primary-hover: var(--brand-1);
   --btn-primary-fg: #fff;
@@ -47,18 +48,18 @@
 
   --btn-icon-bg: rgba(255, 255, 255, 0.06);
   --btn-icon-hover: rgba(255, 255, 255, 0.14);
-  --btn-icon-fg: var(--fg); /* Added for icon button text color */
+  --btn-icon-fg: var(--fg);
 
-  /* ===== Form Controls ===== */
+  /* Form */
   --form-bg: rgba(255, 255, 255, 0.04);
   --form-bg-focus: rgba(255, 255, 255, 0.08);
   --form-border: rgba(255, 255, 255, 0.12);
   --form-border-focus: var(--brand-1);
 
-  /* ===== Select Arrow ===== */
+  /* Select */
   --select-arrow: #ffffff;
 
-  /* ===== Modal ===== */
+  /* Modal */
   --modal-bg: rgba(255, 255, 255, 0.05);
   --modal-backdrop: rgba(0, 0, 0, 0.65);
   --modal-btn: var(--brand-2);
@@ -66,7 +67,7 @@
   --modal-btn-cancel: #3a3a3a;
   --modal-btn-cancel-hover: #4a4a4a;
 
-  /* ===== Scrollbar ===== */
+  /* Scroll */
   --scroll-track: rgba(255, 255, 255, 0.05);
   --scroll-thumb: var(--brand-2);
   --scroll-thumb-hover: var(--brand-1);
@@ -74,7 +75,7 @@
   --scroll-radius: 6px;
 }
 
-/* --- base --- */
+/* ---- Base ---- */
 *,
 *::before,
 *::after {
@@ -92,21 +93,23 @@ body {
   font-family: var(--font-ui), var(--font-jp);
 }
 
-/* --- for Japanese --- */
-.jp-heavy {
-  font-family: var(--font-jp);
+/* Text */
+p {
+  margin: 0;
+  font-family: var(--font-jp), var(--font-ui);
+  font-size: 1.4rem;
+  line-height: 1.65;
 }
 
-/* --- header --- */
+/* ---- App header ---- */
 .app-header {
-  font-family: var(--font-accent);
   height: 5rem;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   padding: 0 var(--space-3);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--panel-deep);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .header-title {
@@ -115,7 +118,7 @@ body {
   font-weight: 600;
 }
 
-/* --- wrapper --- */
+/* ---- Layout ---- */
 .main-wrapper {
   display: grid;
   grid-template-columns: 25% 1fr 20%;
@@ -123,102 +126,79 @@ body {
   height: calc(100vh - 5rem);
 }
 
-/* --- columns common settings --- */
+/* Columns */
 .col {
-  padding: var(--space-3);
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   background: var(--panel);
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(255,255,255,0.06);
+  min-height: 0;
 }
 
+.col-left { grid-area: left; }
+.col-center { grid-area: center; }
+.col-right {
+  grid-area: right;
+  border-right: none;
+}
+
+/* ---- Column header ---- */
 .col-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   height: 3.6rem;
+  padding: 0 var(--space-3);
+  background: linear-gradient(to bottom, var(--panel-deep), var(--panel));
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.col-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  font-family: var(--font-ui), var(--font-jp);
 }
 
 .col-tools {
   display: flex;
-  gap: 0.8rem;
+  gap: var(--space-1);
+  min-width: 4.4rem;
 }
 
-/* ---- Left Column (Markdown Editor) ---- */
-.col-left {
-  display: flex;
-  flex-direction: column;
-}
-
-.col-left .col-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.md-editor {
-  flex: 1;
-  height: 100%;
-  padding-top: 1rem;
-}
-
-/* ---- Center Column ---- */
-.md-preview-waiting {
-  opacity: 0.2;
-}
-
-.col-right {
-  border-right: none;
-}
-
-/* --- titles in columns --- */
-.col-title {
-  /* margin: 0 0 var(--space-2); */
-  font-size: 1.4rem;
-  font-weight: 500;
-  opacity: 0.9;
-}
-
-/* --- contents --- */
+/* ---- Column content ---- */
 .col-content {
+  flex: 1;
+  padding: var(--space-3);
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  min-height: 0;
 }
 
-/* --- section title (h3) --- */
+/* MD Architect original */
+.md-editor {
+  flex: 1;
+  resize: none;
+}
+
+.md-preview-waiting {
+  opacity: 0.25;
+}
+
+/* ---- Section ---- */
 .section-title {
-  margin: var(--space-2) 0 var(--space-1);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 500;
-  color: var(--fg);
-  opacity: 0.85;
-  border-left: 3px solid var(--brand-1);
+  border-left: 2px solid var(--brand-1);
   padding-left: var(--space-1);
+  font-family: var(--font-ui), var(--font-jp);
 }
 
-/* --- responsive --- */
-.col-left {
-  grid-area: left;
-}
-
-.col-center {
-  grid-area: center;
-}
-
-.col-right {
-  grid-area: right;
-}
-
-@media (hover: none) and (pointer: coarse), (max-width: 768px) {
-  .app-header {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-  }
-
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
   .main-wrapper {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
     grid-template-areas:
       "center"
       "left"
@@ -228,10 +208,6 @@ body {
 
   .col {
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .col-left {
-    height: 40rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
 }

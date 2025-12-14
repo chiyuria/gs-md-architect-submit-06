@@ -15,14 +15,11 @@
   width: 100%;
   padding: 1rem 1.2rem;
   font-size: 1.4rem;
-
   font-family: var(--font-ui), var(--font-jp);
-
   color: var(--fg);
   background: var(--form-bg);
   border: 1px solid var(--form-border);
   border-radius: var(--radius);
-
   outline: none;
   transition: 0.15s ease;
 }
@@ -40,6 +37,7 @@
   min-height: 10rem;
   resize: none;
   line-height: 1.6;
+  font-family: var(--font-jp), var(--font-ui);
 }
 
 .input-base:disabled {
@@ -52,20 +50,16 @@
   padding: 0 1.2rem;
   height: 3.6rem;
   font-size: 1.4rem;
-
   font-family: var(--font-ui), var(--font-jp);
-
   color: var(--fg);
   background: var(--form-bg);
   border: 1px solid var(--form-border);
   border-radius: var(--radius);
   outline: none;
-
   appearance: none;
   background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5 7l5 5 5-5z'/></svg>");
   background-repeat: no-repeat;
   background-position: right 1rem center;
-
   transition: 0.15s ease;
 }
 
