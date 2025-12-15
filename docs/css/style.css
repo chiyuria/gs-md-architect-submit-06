@@ -8,10 +8,9 @@
   /* Brand */
   --brand-1: #b59aff;
   --brand-2: #8a6cff;
-
-  --accent-green: #40d98b;
-  --accent-yellow: #ffd84c;
-  --accent-red: #ff5f6e;
+  --accent-green: #6fcdb4;
+  --accent-yellow: #d4b07a;
+  --accent-red: #a96a9c;
 
   /* Background */
   --bg: #080a0f;
@@ -42,13 +41,12 @@
   --btn-ghost-hover: rgba(255, 255, 255, 0.12);
   --btn-ghost-fg: var(--fg);
 
-  --btn-danger-bg: #d94141;
-  --btn-danger-hover: #f35b5b;
+  --btn-danger-bg: #a96a9c;
+  --btn-danger-hover: #b97ab0;
   --btn-danger-fg: #fff;
 
   --btn-icon-bg: rgba(255, 255, 255, 0.06);
   --btn-icon-hover: rgba(255, 255, 255, 0.14);
-  --btn-icon-fg: var(--fg);
 
   /* Form */
   --form-bg: rgba(255, 255, 255, 0.04);
@@ -56,7 +54,6 @@
   --form-border: rgba(255, 255, 255, 0.12);
   --form-border-focus: var(--brand-1);
 
-  /* Select */
   --select-arrow: #ffffff;
 
   /* Modal */
